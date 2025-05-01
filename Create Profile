@@ -1,0 +1,4 @@
+# Creates a PowerShell profile
+if (!(Test-Path $PROFILE)) { New-Item -ItemType File -Path $PROFILE -Force } 
+
+notepad $PROFILE

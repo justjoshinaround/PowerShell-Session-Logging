@@ -1,0 +1,15 @@
+# Create a unique log file path using the current timestamp - alter path as-needed
+$logPath = "C:\Logs\PS_$(Get-Date -Format 'yyyy-MM-dd_HH-mm-ss').txt"
+
+# Ensure the log directory exists
+if (!(Test-Path -Path "C:\Logs")) {
+    New-Item -ItemType Directory -Path "C:\Logs" | Out-Null
+} 
+
+# Start the transcript
+Start-Transcript -Path $logPath -Append
+
+# Register an event to stop the transcription when the session exits
+Register-EngineEvent PowerShell.Exiting -Action {
+    Stop-Transcript | Out-Null
+} | Out-Null

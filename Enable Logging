@@ -1,3 +1,4 @@
+# ADD THIS CODE INTO THAT PS PROFILE YOU JUST CREATED
 # Create a unique log file path using the current timestamp - alter path as-needed
 $logPath = "C:\Logs\PS_$(Get-Date -Format 'yyyy-MM-dd_HH-mm-ss').txt"
 
